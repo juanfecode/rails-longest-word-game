@@ -1,0 +1,19 @@
+<div class="containter mt-4">
+  <h1 class="text-center align-middle">New game</h1>
+  <div class="d-flex justify-content-center bg-blue">
+    <div class="row">
+      <% @letters.each do |leter|%>
+      <div class='col border p-4 m-2 bg-primary text-white'><%= leter %></div>
+    <% end %>
+    </div>
+
+  </div>
+  <p class="text-center align-middle">What is the longest word you can find?</p>
+
+  <form action="/score" class="d-flex justify-content-center"  method="post" data-turbo="false">
+    <input type="text" name="word">
+    <%= hidden_field_tag :letters, @letters %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token%>
+    <input type="submit">
+  </form>
+</div>
